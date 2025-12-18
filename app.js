@@ -1,3 +1,11 @@
+if(process.env.NODE_ENV != "production"){
+    require('dotenv').config();
+}
+
+//console.log(process.env.SECRET) 
+
+
+
 /**************************************************************
  *                     🌟 BASIC SETUP 🌟
  **************************************************************/
@@ -6,6 +14,7 @@ const app = express();
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+
 
 
 
@@ -141,6 +150,7 @@ app.use("/" , userRouter);
 
 
 app.use((err,req,res,next)=>{
+    console.log(err);
     res.send("Something went wrong");
 });
 
