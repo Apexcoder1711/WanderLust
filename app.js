@@ -18,9 +18,9 @@ const User = require("./models/user.js");
 
 
 
-app.get("/" , (req,res)=>{
-    res.send("Hi , I am home");
-})
+// app.get("/" , (req,res)=>{
+//     res.send("Hi , I am home");
+// })
 
 
 
