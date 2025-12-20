@@ -1,12 +1,24 @@
+html, body {
+    height: 100%; /* HTML ko bhi height dena zaroori hai */
+    margin: 0;
+}
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0; /* Extra margin hatayein */
 }
 
 .container{
-    flex: 1;
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto; /* Ye ensure karta hai ki content kam ho tab bhi footer niche rahe */
+    flex-shrink: 0; /* Footer ko dabne se rokne ke liye */
+    background-color: #ebebeb;
 }
 
 .navbar{
@@ -46,17 +58,15 @@ body {
     margin-right: 1rem;
 }
 
-.f-info{
+.f-info {
     text-align: center;
     display: flex;
     height: 8rem;
     background-color: #ebebeb;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-evenly;
-
+    align-content: center; /* space-evenly ki jagah center try karein agar gap zyada ho */
 }
-
 
 .listing-card{
     border: none !important;
@@ -112,3 +122,4 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+

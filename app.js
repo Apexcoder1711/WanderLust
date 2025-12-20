@@ -7,6 +7,27 @@ if(process.env.NODE_ENV != "production"){
 
 
 /**************************************************************
+ *                     🌟 DATABASE SETUP 🌟
+ **************************************************************/
+const mongoose = require('mongoose');
+const dbUrl = process.env.ATLASDB_URL;
+// getting-started.js
+main()
+    .then(()=>{
+        console.log("connected to db");
+    })
+    .catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect(dbUrl);
+
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` 
+  // if your database has auth enabled
+}
+
+
+
+/**************************************************************
  *                     🌟 BASIC SETUP 🌟
  **************************************************************/
 const express = require("express");
@@ -29,8 +50,24 @@ const flash = require("connect-flash");
 
 //requiring express-session
 const session = require("express-session");
+const { MongoStore } = require("connect-mongo"); // Destructured require
+
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret: process.env.SECRET,
+    },
+    touchAfter: 24 * 3600,
+});
+
+store.on("error", (err) => {
+    console.log("ERROR in MONGO SESSION STORE", err);
+});
+
+
 const sessionOptions = {
-    secret : "mysupersecretcode",
+    store : store,
+    secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
     cookie : {
@@ -39,6 +76,8 @@ const sessionOptions = {
         httpOnly : true
     }
 }
+
+
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -65,27 +104,6 @@ const reviews = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 
-
-
-
-/**************************************************************
- *                     🌟 DATABASE SETUP 🌟
- **************************************************************/
-const mongoose = require('mongoose');
-
-// getting-started.js
-main()
-    .then(()=>{
-        console.log("connected to db");
-    })
-    .catch(err => console.log(err));
-
-async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` 
-  // if your database has auth enabled
-}
 
 
 
