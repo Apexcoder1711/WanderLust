@@ -77,6 +77,3 @@ utils/        # Error and async-handler utilities
 
 Never commit your `.env` file. It is already excluded through `.gitignore`.
 
-## Author
-
-[Apexcoder1711](https://github.com/Apexcoder1711)

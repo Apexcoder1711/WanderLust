@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
+  <title id="title">WanderLust logo</title>
+  <desc id="desc">A coral map pin containing a white mountain, followed by the WanderLust wordmark.</desc>
+  <rect width="760" height="180" rx="28" fill="#fff7f2"/>
+  <path d="M98 22c-34.2 0-62 27.2-62 60.7C36 127.5 98 164 98 164s62-36.5 62-81.3C160 49.2 132.2 22 98 22Z" fill="#fe424d"/>
+  <path d="m59 104 25-33 16 20 13-16 28 29H59Z" fill="#fff"/>
+  <circle cx="98" cy="54" r="10" fill="#fff"/>
+  <text x="190" y="108" fill="#222" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">Wander</text>
+  <text x="455" y="108" fill="#fe424d" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">Lust</text>
+  <text x="195" y="140" fill="#6b6b6b" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="4">STAY • EXPLORE • BELONG</text>
+</svg>
